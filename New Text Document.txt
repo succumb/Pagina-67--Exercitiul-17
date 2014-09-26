@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //----------Declaram cele doua siruri de caractere----------
+    char text1[500], text2[500];
+    
+    //----------Tiparim textele----------
+    cout << "Introduceti text1: ";
+    cin.get(text1, 500);
+    cin.get();
+
+    cout << "Introduceti text2: ";
+    cin.get(text2, 500);
+    
+    //----------Usuram putin munca----------
+    int n = strlen(text1);
+    int m = strlen(text2);
+
+    //----------Inlocuim caracterele comune cu "0"----------
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            if(text1[i]==text2[j]){
+                text1[i]='0';
+                text2[i]='0';
+            }
+        }
+    }
+    
+    //----------Declaram sirurile de text finale----------
+    char text1_final[500], text2_final[500];
+    int z=0, w=0;
+
+    //----------Introducem caracterele distincte in sirurile noi----------
+    for(int i=0; i<n; i++){
+        if(text1[i]!='0'){
+            text1_final[z]=text1[i];
+            z++;
+        }
+    }
+
+    for(int i=0; i<m; i++){
+        if(text2[i]!='0'){
+            text2_final[w]=text2[i];
+            w++;
+        }
+    }
+
+    //----------Afisam rezultatul----------
+    cout << "Text1_final: ";
+    for(int i=0; i<z; i++){
+        cout << text1_final[i];
+    }
+    cout << '\n';
+
+    cout << "Text2_final: ";
+    for(int i=0; i<w; i++){
+        cout << text2_final[i];
+    }
+    return 0;
+}
